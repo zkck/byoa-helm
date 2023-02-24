@@ -37,7 +37,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           env:
             - name: REDIS_ADDR
-              value: "redis-service.default:6379"
+              value: "my-release-redis-cluster.default:6379"
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
