@@ -8,7 +8,6 @@ spec:
     image: redis:5.0.4
     command:
       - redis-server
-      - "/redis-master/redis.conf"
     env:
     - name: MASTER
       value: "true"
@@ -20,14 +19,6 @@ spec:
     volumeMounts:
     - mountPath: /redis-master-data
       name: data
-    - mountPath: /redis-master
-      name: config
   volumes:
     - name: data
       emptyDir: {}
-    - name: config
-      configMap:
-        name: example-redis-config
-        items:
-        - key: redis-config
-          path: redis.conf
