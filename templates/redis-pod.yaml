@@ -21,6 +21,9 @@ spec:
     volumeMounts:
     - mountPath: /redis-master-data
       name: data
+    env:
+    - name: REDIS_ADDR
+      value: "redis-service.default"
   volumes:
     - name: data
       emptyDir: {}
